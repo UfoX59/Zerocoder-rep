@@ -55,14 +55,30 @@ mammal1 = Mammal("Кот Матроскин", 4)
 reptile1 = Reptile("Сайзот", 25, "За Затерру!")
 
 animal1 = Animal("Животное1", 14)
-print (animal1.make_sound(), ', ' ,animal1.eat())
+print (f"{animal1.name},  {animal1.make_sound()}, {animal1.eat()}")
 
 print(bird1.name, bird1.age, bird1.wing_span)
 print(bird1.make_sound())
 print (bird1.eat())
 
 #3
-animals = [bird1, mammal1, reptile1]
-for animal in animals:
-    print(animal.make_sound())
+def animal_sound(animals):
+    for animal in animals:
+        print(animal.make_sound())
+
+
+#animal_sound(bird1, mammal1, reptile1)
+
 #4
+class Zoo():
+    def __init__(self):
+        self.animals = []
+        self.staff = []
+
+    def add_aminal(self, animal_speices):
+        self.animals.append(animal_speices)
+
+    def add_staffl(self, new_employees):
+        self.staff.append(new_employees)
+
+#5
