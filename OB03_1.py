@@ -15,41 +15,54 @@ class Animal():
         self.age = age
 
     def make_sound(self):
-        pass
+        return "Издаёт звук"
 
     def eat (self):
-        pass
+        return "Животное ест"
 
 class Bird(Animal):
-    def __init__(self, name, age, wing_span):
+    def __init__(self, name, age, wing_span, voice):
         super().__init__(name, age)
         self.wing_span = wing_span
+        self.voice = voice
 
     def make_sound(self):
-        print ("Пение птицы")
+        return self.voice
 
     def eat(self):
-        print("Клюёт зерно")
+        return "Клюёт зерно"
 
 class Mammal(Animal):
     def make_sound(self):
-        print("Звук млекопитающего")
+        return "Звук млекопитающего"
 
     def eat(self):
-        print("Пьёт молоко")
+        return "Пьёт молоко"
 
 class Reptile(Animal):
+    def __init__(self, name, age, voice):
+        super().__init__(name, age)
+        self.voice = voice
+
     def make_sound(self):
-        print("За Затерру!")
+        return self.voice
 
     def eat(self):
-        print("Твоя кровь на моих зубах")
+        return "Твоя кровь на моих зубах"
 
-bird1 = Bird("Дятел Вудди", 3, 45)
+bird1 = Bird("Дятел Вудди", 3, 45, "Тук-тук-тук")
 mammal1 = Mammal("Кот Матроскин", 4)
-reptile1 = Reptile("Сайзот", 25)
+reptile1 = Reptile("Сайзот", 25, "За Затерру!")
+
+animal1 = Animal("Животное1", 14)
+print (animal1.make_sound(), ', ' ,animal1.eat())
 
 print(bird1.name, bird1.age, bird1.wing_span)
-bird1.make_sound()
-bird1.eat()
+print(bird1.make_sound())
+print (bird1.eat())
 
+#3
+animals = [bird1, mammal1, reptile1]
+for animal in animals:
+    print(animal.make_sound())
+#4
