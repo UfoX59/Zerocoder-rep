@@ -50,6 +50,32 @@ class Reptile(Animal):
     def eat(self):
         return "Твоя кровь на моих зубах"
 
+def animal_sound(animals):
+    for animal in animals:
+        print(animal.make_sound())
+
+
+class Zoo():
+    def __init__(self):
+        self.animals = []
+        self.staff = []
+
+    def add_animal(self, animal_speices):
+        self.animals.append(animal_speices)
+        print(f"Животное {animal_speices.name} добавлено в зоопарк")
+
+    def add_staff(self, new_employees):
+        self.staff.append(new_employees)
+        print(f"Сотрудник {new_employees} принят на работу в зоопарк")
+
+class ZooKeeper():
+    def feed_animal(self, animal):
+        print(f"Сейчас кормят {animal.name}")
+
+class Veterinarian():
+    def heal_animal(self, animal):
+        print(f"Сейчас лечат {animal}")
+
 bird1 = Bird("Дятел Вудди", 3, 45, "Тук-тук-тук")
 mammal1 = Mammal("Кот Матроскин", 4)
 reptile1 = Reptile("Сайзот", 25, "За Затерру!")
@@ -61,24 +87,13 @@ print(bird1.name, bird1.age, bird1.wing_span)
 print(bird1.make_sound())
 print (bird1.eat())
 
-#3
-def animal_sound(animals):
-    for animal in animals:
-        print(animal.make_sound())
+zoo = Zoo()
+zoo_keeper = ZooKeeper()
+veterinarian = Veterinarian()
 
+zoo.add_animal(bird1)
+zoo.add_animal(mammal1)
+zoo.add_animal(reptile1)
 
-#animal_sound(bird1, mammal1, reptile1)
-
-#4
-class Zoo():
-    def __init__(self):
-        self.animals = []
-        self.staff = []
-
-    def add_aminal(self, animal_speices):
-        self.animals.append(animal_speices)
-
-    def add_staffl(self, new_employees):
-        self.staff.append(new_employees)
-
-#5
+zoo.add_staff("смотритель Вася")
+zoo.add_staff("ветеринар Петя")
