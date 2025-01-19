@@ -21,6 +21,9 @@ class Animal():
         pass
 
 class Bird(Animal):
+    def __init__(self, name, age, wing_span):
+        super().__init__(name, age)
+        self.wing_span = wing_span
 
     def make_sound(self):
         print ("Пение птицы")
@@ -42,11 +45,11 @@ class Reptile(Animal):
     def eat(self):
         print("Твоя кровь на моих зубах")
 
-bird1 = Bird("Дятел Вудди", 3)
+bird1 = Bird("Дятел Вудди", 3, 45)
 mammal1 = Mammal("Кот Матроскин", 4)
 reptile1 = Reptile("Сайзот", 25)
 
-print(bird1.name, bird1.age)
+print(bird1.name, bird1.age, bird1.wing_span)
 bird1.make_sound()
 bird1.eat()
 
