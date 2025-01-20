@@ -9,6 +9,8 @@
 #5. Создайте классы для сотрудников, например, `ZooKeeper`, `Veterinarian`, которые могут иметь специфические методы
 # (например, `feed_animal()` для `ZooKeeper` и `heal_animal()` для `Veterinarian`).
 
+import pickle
+
 class Animal():
     def __init__(self, name, age):
         self.name = name
@@ -68,6 +70,16 @@ class Zoo():
         self.staff.append(new_employees)
         print(f"Сотрудник {new_employees} принят на работу в зоопарк")
 
+    def save(self, filename = 'zoo_status.pkl'):
+        with open(filename, 'wb') as f:
+            pickle.dump(self, f)
+        print("Состояние зоопарка сохранено")
+
+    @classmethod
+    def load(cls, filename='zoo_status.pkl'):
+        with open(filename, 'rb') as f:
+            return pickle.load(f)
+
 class ZooKeeper():
     def feed_animal(self, animal):
         print(f"Сейчас кормят {animal.name}")
@@ -107,3 +119,7 @@ veterinarian.heal_animal(animal1)
 zoo_keeper.feed_animal(bird1)
 veterinarian.heal_animal(reptile1)
 
+zoo.save()
+
+loaded_zoo = Zoo.load()
+print(loaded_zoo.animals, loaded_zoo.staff)
