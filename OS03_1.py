@@ -1,7 +1,7 @@
 import telebot
 
 # Замените 'YOUR_BOT_TOKEN' на токен вашего бота
-bot = telebot.TeleBot('7942753934:AAGvTvXwbQUXr1aKWlsrU5EbLqmWw7oJ3SY')
+bot = telebot.TeleBot('')
 
 # Обработчик всех сообщений
 @bot.message_handler(func=lambda message: True)
