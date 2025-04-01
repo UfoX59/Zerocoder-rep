@@ -4,7 +4,7 @@
 # Распечатайте полученные записи.
 
 import requests
-
+import pprint
 url = 'https://jsonplaceholder.typicode.com/posts'
 params1 = {'userId': 1}
 
@@ -12,6 +12,7 @@ response1 = requests.get(url, params = params1)
 if response1.status_code == 200:
     posts = response1.json()
     print(posts)
+    pprint.pprint(posts)
     for p in posts:
         print(f"Post ID: {p['id']}")
         print(f"Title: {p['title']}")

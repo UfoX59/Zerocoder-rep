@@ -1,9 +1,7 @@
 import requests
 
 # Задание 1: Получение данных
-params = {
-    'q' : 'html'
-}
+params = {    'q' : 'language:html' }
 
 response = requests.get('https://api.github.com/search/repositories', params=params)
 response_json = response.json()
